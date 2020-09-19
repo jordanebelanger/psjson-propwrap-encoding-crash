@@ -5,9 +5,6 @@ import PureSwiftJSON
 
 // configures your application
 public func configure(_ app: Application) throws {
-    // setting PSJSONEncoder as the ContentEncoder for JSON
-    ContentConfiguration.global.use(encoder: PSJSONEncoder(), for: .json)
-    
     app.databases.use(.sqlite(.memory), as: .sqlite)
     
     app.migrations.add(CreateTodo())
