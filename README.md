@@ -37,7 +37,7 @@ Encoding one of these codable model to json with `PSJSONEncoder` as the Vapor's 
         
         // loading the model in a response with `JSONEncoder` works
         try app.test(.GET, "todos", afterResponse: { res in
-            try print(res.content.decode(Todo.self))
+            try print(res.content.decode([Todo].self))
             XCTAssertEqual(res.status, .ok)
         })
         
@@ -47,7 +47,7 @@ Encoding one of these codable model to json with `PSJSONEncoder` as the Vapor's 
         // Loading the model and encoding it to json using PSJSONEncoder()
         // This will crash before the test can finish with a "precondition" failure
         try app.test(.GET, "todos", afterResponse: { res in
-            try print(res.content.decode(Todo.self))
+            try print(res.content.decode([Todo].self))
             XCTAssertEqual(res.status, .ok)
         })
     }
